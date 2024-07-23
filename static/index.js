@@ -34,30 +34,3 @@ form.addEventListener("submit", async (event) => {
   const url = search(address.value, searchEngine.value);
   location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
 });
-
-// Tab Cloak Handle
-
-function cloakTab(title, faviconPath) {
-    document.title = title;
-
-    let link = document.querySelector("link[rel~='icon']");
-    if (!link) {
-        link = document.createElement('link');
-        link.rel = 'icon';
-        document.head.appendChild(link);
-    }
-    link.href = faviconPath;
-
-    // Store the chosen title and favicon in localStorage to persist across pages
-    localStorage.setItem('tabTitle', title);
-    localStorage.setItem('tabFavicon', faviconPath);
-}
-
-// Load the stored title and favicon when the page loads
-window.addEventListener('load', () => {
-    const storedTitle = localStorage.getItem('tabTitle');
-    const storedFavicon = localStorage.getItem('tabFavicon');
-    if (storedTitle && storedFavicon) {
-        cloakTab(storedTitle, storedFavicon);
-    }
-});
