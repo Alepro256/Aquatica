@@ -224,11 +224,6 @@
                 <p>Create and play learning games.</p>
                 <button onclick="setSetting('Kahoot')">Open Kahoot</button>
             </div>
-            <div class="setting-item">
-                <h3>Blooket</h3>
-                <p>Engage and educate with interactive games.</p>
-                <button onclick="setSetting('Blooket')">Open Blooket</button>
-            </div>
         </div>
     </main>
     <footer>
@@ -243,33 +238,20 @@
         // Function to set the tab cloak
         function cloakTab(title, faviconPath) {
         document.title = title;
-        const link = document.querySelector("link[rel~='icon']");
+
+        let link = document.querySelector("link[rel~='icon']");
         if (!link) {
-            const newLink = document.createElement('link');
-            newLink.rel = 'icon';
-            newLink.href = faviconPath;
-            document.head.appendChild(newLink);
-        } else {
-            link.href = faviconPath;
+            link = document.createElement('link');
+            link.rel = 'icon';
+            document.head.appendChild(link);
         }
+        link.href = faviconPath;
     }
 
         
         // Function to set the setting
         function setSetting(setting) {
             switch (setting) {
-                case 'Google Docs':
-                    openApp('https://docs.google.com');
-                    break;
-                case 'Google Drive':
-                    openApp('https://drive.google.com');
-                    break;
-                case 'Kahoot':
-                    openApp('https://kahoot.com');
-                    break;
-                case 'Blooket':
-                    openApp('https://www.blooket.com');
-                    break;
                 default:
                     console.log('Unknown setting');
             }
