@@ -1,6 +1,6 @@
 self.__uv$config = {
     prefix: '/service/',
-    bare:'https://bear.lema.cl',
+    bare:'https://nebulaproxy.io/bare/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/uv/uv.handler.js',
